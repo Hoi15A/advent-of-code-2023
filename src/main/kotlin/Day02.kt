@@ -13,7 +13,6 @@ class Day02(private val lines: List<String>) : Day {
     override fun part1(): Any {
         val games = parseGames()
         val possibleGames = mutableListOf<Game>()
-        val impossibleGames = mutableListOf<Game>()
         for (game in games) {
             var gamePossible = true
             for (pull in game.pulls) {
@@ -22,7 +21,7 @@ class Day02(private val lines: List<String>) : Day {
                     break
                 }
             }
-            if (gamePossible) possibleGames.add(game) else impossibleGames.add(game)
+            if (gamePossible) possibleGames.add(game)
         }
 
         return possibleGames.sumOf { it.id }
